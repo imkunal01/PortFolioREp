@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import Particles from './components/background/Particles';
-import BlurText from "./components/text/BlurText";
+import BlurText from './components/text/BlurText.jsx';
 import ShiftingDropDown from './components/nav/ShiftingDropDown';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowText(false);
-    }, 6000); // 5 seconds
+    }, 6000); // 6 seconds
 
     return () => clearTimeout(timeout);
   }, []);
@@ -22,12 +22,12 @@ function App() {
   const handleAnimationComplete = () => {
     console.log('Animation completed!');
   };
-  
-  
+
+
 
   return (
     <>
-      <ShiftingDropDown  />
+      <ShiftingDropDown />
       {/* Background Particles */}
       <div
         style={{
@@ -51,28 +51,28 @@ function App() {
           moveParticlesOnHover={true}
           alphaParticles={false}
           disableRotation={false}
-          />
+        />
       </div>
 
       {/* Blur Text with Fade + Big Size */}
       <AnimatePresence>
         {showText && (
-         <motion.div
-         className="flex justify-center items-center h-screen overflow-hidden"
-         initial={{ opacity: 1 }}
-         exit={{ opacity: 0 }}
-         transition={{ duration: 1 }}
-       >
-         <BlurText
-           text="Beneath every click, a spell. Behind every pixel, a purpose."
-           delay={200}
-           animateBy="words"
-           direction="top"
-           onAnimationComplete={handleAnimationComplete}
-           className="text-2xl font-extrabold text-white text-center max-w-5xl leading-tight px-4"
-         />
-       </motion.div>
-       
+          <motion.div
+            className="flex justify-center items-center h-screen overflow-hidden"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <BlurText
+              text="Beneath every click, a spell. Behind every pixel, a purpose."
+              delay={200}
+              animateBy="words"
+              direction="top"
+              onAnimationComplete={handleAnimationComplete}
+              className="text-2xl font-extrabold text-white text-center max-w-5xl leading-tight px-4"
+            />
+          </motion.div>
+
         )}
       </AnimatePresence>
     </>
