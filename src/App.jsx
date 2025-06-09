@@ -15,17 +15,9 @@ const items = [
     handle: "@sarahjohnson",
     borderColor: "#3B82F6",
     gradient: "linear-gradient(145deg, #3B82F6, #000)",
-    url: "https://github.com/sarahjohnson"
-  },
-  {
-    image: "https://i.pravatar.cc/300?img=2",
-    title: "Mike Chen",
-    subtitle: "Backend Engineer",
-    handle: "@mikechen",
-    borderColor: "#10B981",
-    gradient: "linear-gradient(180deg, #10B981, #000)",
-    url: "https://linkedin.com/in/mikechen"
+    url: "https://github.com"
   }
+  
 ];
 
 function App() {
@@ -104,36 +96,34 @@ function App() {
 
       {/* TextPressure Appears After 7s and Centered */}
       {showTextPressure && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center"
-          style={{ pointerEvents: 'none' }}
-        >
-          <TextPressure
-            text="Hey there, Welcome!"
-            flex={true}
-            alpha={false}
-            stroke={false}
-            width={true}
-            weight={true}
-            italic={true}
-            textColor="#ffffff"
-            strokeColor="#ff0000"
-            minFontSize={48}
-          />
-        </div>
+            <div className="flex justify-center items-center py-100 h-screen overflow-hidden">
+              <TextPressure
+                text="Hey there, Welcome!"
+                flex={true}
+                alpha={false}
+                stroke={false}
+                width={true}
+                weight={true}
+                italic={true}
+                textColor="#ffffff"
+                strokeColor="#ff0000"
+                minFontSize={48}
+              />
+            </div>
+          
       )}
 
 
 
-      <div style={{ height: '600px', position: 'relative' }}>
-        <ChromaGrid 
-          items={items}
-          radius={300}
-          damping={0.45}
-          fadeOut={0.6}
-          ease="power3.out"
-        />
-      </div>
+    <div className="py-16 px-4">
+      <ChromaGrid 
+        items={items}
+        radius={300}
+        damping={0.45}
+        fadeOut={0.6}
+        ease="power3.out"
+      />
+    </div>
     </>
   );
 }
