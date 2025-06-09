@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import Particles from './components/background/Particles';
-import BlurText from './components/text/blurText.jsx';
-import ShiftingDropDown from './components/nav/ShiftingDropDown.jsx';
+import BlurText from './components/text/blurText';
+import ShiftingDropDown from './components/nav/ShiftingDropDown';
 import { motion, AnimatePresence } from 'framer-motion';
 
 
