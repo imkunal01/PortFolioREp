@@ -87,7 +87,7 @@ function App() {
           style={{ pointerEvents: 'none' }}
         >
           <TextPressure
-            text="H!"
+            text="Hey there, Welcome!"
             flex={true}
             alpha={false}
             stroke={false}

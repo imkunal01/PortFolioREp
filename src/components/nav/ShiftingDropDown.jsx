@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-
 import { AnimatePresence, motion } from "framer-motion";
-
 import {
   FiArrowRight,
   FiBarChart2,
@@ -11,13 +9,13 @@ import {
 } from "react-icons/fi";
 
 export const ShiftingDropDown = () => {
-return (
-    <div className="fixed top-3 right-20 z-50 bg-transparent text-neutral-200 p-3 rounded">
-        <div className="text-lg bg-gradient-to-r from-blue-500 via-white to-blue-500 text-transparent bg-clip-text">
-            <Tabs />
-        </div>
+  return (
+    <div className="fixed top-3 right-4 md:right-20 z-50 bg-transparent text-neutral-200 p-3 rounded">
+      <div className="text-lg bg-gradient-to-r from-blue-500 via-white to-blue-500 text-transparent bg-clip-text">
+        <Tabs />
+      </div>
     </div>
-);
+  );
 };
 
 const Tabs = () => {
@@ -37,7 +35,7 @@ const Tabs = () => {
   return (
     <div
       onMouseLeave={() => handleSetSelected(null)}
-      className="relative flex h-fit gap-2"
+      className="relative flex flex-wrap gap-2"
     >
       {TABS.map((t) => {
         return (
@@ -67,7 +65,7 @@ const Tab = ({ children, tab, handleSetSelected, selected }) => {
       onClick={() => handleSetSelected(tab)}
       className={`flex items-center gap-1 rounded-full px-3 py-1.5 text-sm transition-colors ${
         selected === tab
-          ? " bg-neutral-800 text-neutral-100"
+          ? "bg-neutral-800 text-neutral-100"
           : "text-neutral-400"
       }`}
     >
@@ -97,7 +95,7 @@ const Content = ({ selected, dir }) => {
         opacity: 0,
         y: 8,
       }}
-      className="absolute left-0 top-[calc(100%_+_24px)] w-96 rounded-lg border border-neutral-600 bg-gradient-to-b from-neutral-900 via-neutral-900 to-neutral-800 p-4"
+      className="absolute left-0 top-[calc(100%_+_24px)] w-full md:w-96 rounded-lg border border-neutral-600 bg-gradient-to-b from-neutral-900 via-neutral-900 to-neutral-800 p-4"
     >
       <Bridge />
       <Nub selected={selected} />
@@ -166,7 +164,7 @@ const Nub = ({ selected }) => {
 const Products = () => {
   return (
     <div>
-      <div className="flex gap-4">
+      <div className="flex flex-wrap gap-4">
         <div>
           <h3 className="mb-2 text-sm font-medium">Startup</h3>
           <a href="#" className="mb-1 block text-sm text-neutral-400">
@@ -215,7 +213,7 @@ const Products = () => {
 
 const Pricing = () => {
   return (
-    <div className="grid grid-cols-3 gap-4 divide-x divide-neutral-700">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 divide-x divide-neutral-700">
       <a
         href="#"
         className="flex w-full flex-col items-center justify-center py-2 text-neutral-400 transition-colors hover:text-neutral-50"
@@ -244,7 +242,7 @@ const Pricing = () => {
 const Blog = () => {
   return (
     <div>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         <a href="#">
           <img
             className="mb-2 h-14 w-full rounded object-cover"

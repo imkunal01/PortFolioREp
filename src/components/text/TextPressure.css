@@ -1,48 +1,87 @@
 @font-face {
-    font-family: 'Compressa VF';
-    src: url('https://res.cloudinary.com/dr6lvwubh/raw/upload/v1529908256/CompressaPRO-GX.woff2');
-    font-style: normal;
-  }
-  
+  font-family: 'Compressa VF';
+  src: url('https://res.cloudinary.com/dr6lvwubh/raw/upload/v1529908256/CompressaPRO-GX.woff2');
+  font-style: normal;
+}
+
+.text-pressure-container {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.text-pressure-title {
+  text-transform: uppercase;
+  transform-origin: center top;
+  margin: 0;
+  text-align: center;
+  -webkit-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  font-weight: 100;
+  width: 100%;
+  color: #ffffff;
+}
+
+.text-pressure-flex {
+  display: flex;
+  justify-content: center;
+  gap: 0.05em;
+}
+
+.text-pressure-stroke span {
+  position: relative;
+  color: #ffffff;
+}
+
+.text-pressure-stroke span::after {
+  content: attr(data-char);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: transparent;
+  z-index: 100;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #ff0000;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
   .text-pressure-container {
-    position: relative;
-    width: 300px;
-    height: 100px;
-    background: transparent;
+    width: 150px;
+    height: 250px;
   }
-  
+
   .text-pressure-title {
-    text-transform: uppercase;
-    transform-origin: center top;
-    margin: 0;
-    text-align: center;
-    -webkit-user-select: none;
-    user-select: none;
-    white-space: nowrap;
-    font-weight: 100;
-    width: 100%;
-    color: #ffffff;
+    font-size: 14px;
   }
-  
+
   .text-pressure-flex {
-    display: flex;
-    justify-content: center;
-    gap: 0.05em;
+    gap: 0.03em;
   }
-  
-  .text-pressure-stroke span {
-    position: relative;
-    color: #ffffff;
-  }
-  
+
   .text-pressure-stroke span::after {
-    content: attr(data-char);
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: transparent;
-    z-index: -1;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: #ff0000;
+    -webkit-text-stroke-width: 2px;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .text-pressure-container {
+    width: 120px;
+    height: 200px;
+  }
+
+  .text-pressure-title {
+    font-size: 12px;
+  }
+
+  .text-pressure-flex {
+    gap: 0.02em;
+  }
+
+  .text-pressure-stroke span::after {
+    -webkit-text-stroke-width: 1.5px;
+  }
+}
