@@ -1,0 +1,23 @@
+.blur-text-wrapper {
+  font-size: 2rem;        /* equivalent to text-2xl */
+  font-weight: 800;         /* font-extrabold */
+  color: white;
+  text-align: center;
+  display: block;
+  max-width: 80rem;         /* roughly max-w-5xl */
+  line-height: 1.2;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  user-select: none;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.blur-text-segment {
+  margin-right: 0.25rem;
+  white-space: nowrap;
+  display: inline-block;
+}
