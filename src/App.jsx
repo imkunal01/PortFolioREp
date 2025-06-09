@@ -4,30 +4,35 @@ import Particles from './components/background/Particles';
 import BlurText from './components/text/BlurText.jsx';
 import ShiftingDropDown from './components/nav/ShiftingDropDown';
 import { motion, AnimatePresence } from 'framer-motion';
-
-
+import TextPressure from './components/text/TextPressure';
 
 function App() {
   const [showText, setShowText] = useState(true);
+  const [showTextPressure, setShowTextPressure] = useState(false);
 
-  // Hide text after 5 seconds
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowText(false);
-    }, 6000); // 6 seconds
+    }, 6000); // hide BlurText after 6s
 
-    return () => clearTimeout(timeout);
+    const pressureTimeout = setTimeout(() => {
+      setShowTextPressure(true);
+    }, 7000); // show TextPressure after 7s
+
+    return () => {
+      clearTimeout(timeout);
+      clearTimeout(pressureTimeout);
+    };
   }, []);
 
   const handleAnimationComplete = () => {
     console.log('Animation completed!');
   };
 
-
-
   return (
     <>
       <ShiftingDropDown />
+
       {/* Background Particles */}
       <div
         style={{
@@ -54,7 +59,7 @@ function App() {
         />
       </div>
 
-      {/* Blur Text with Fade + Big Size */}
+      {/* Blur Text with Fade */}
       <AnimatePresence>
         {showText && (
           <motion.div
@@ -72,9 +77,29 @@ function App() {
               className="text-2xl font-extrabold text-white text-center max-w-5xl leading-tight px-4"
             />
           </motion.div>
-
         )}
       </AnimatePresence>
+
+      {/* TextPressure Appears After 7s and Centered */}
+      {showTextPressure && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ pointerEvents: 'none' }}
+        >
+          <TextPressure
+            text="H!"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={true}
+            textColor="#ffffff"
+            strokeColor="#ff0000"
+            minFontSize={48}
+          />
+        </div>
+      )}
     </>
   );
 }
